@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clientes",
+  "info": {
+    "name": "cliente"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true,
+      "minLength": 3
+    },
+    "telefone": {
+      "required": true,
+      "type": "biginteger"
+    },
+    "endereco": {
+      "type": "text",
+      "required": true,
+      "minLength": 5
+    },
+    "saldo": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}
