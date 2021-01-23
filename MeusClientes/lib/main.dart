@@ -40,53 +40,72 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    var lista = [
+      {
+        "id": 12,
+        "nome": "Sílvia Maria Borges Dias",
+        "telefone": "62994943490",
+        "endereco":
+            "Rua das Garças quadra 16 Lote 29 Colina Azul\n\nproximo ao colegio Militar no Colina Azul",
+        "saldo": 2000,
+        "created_at": "2021-01-23T21:45:22.000Z",
+        "updated_at": "2021-01-23T21:45:22.000Z"
+      },
+      {
+        "id": 11,
+        "nome": "Savio Ferreira de Souza",
+        "telefone": "62986265578",
+        "endereco":
+            "rua 30 quadra 53 lote 01 bairro independência  \n\nproximo a drogaria MedFacil ",
+        "saldo": 200,
+        "created_at": "2021-01-23T21:36:34.000Z",
+        "updated_at": "2021-01-23T21:36:34.000Z"
+      }
+    ];
+
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+        title: Text(
+          'AGIOTLIST',
         ),
+        centerTitle: true,
       ),
+      body: Column(
+        children: [
+          SizedBox(
+            height: 25,
+          ),
+          Card(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 180,
+              color: Colors.blue[50],
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Card(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 180,
+              color: Colors.blue[50],
+            ),
+          ),
+        ],
+      ),
+
+      /*ListView.builder(
+        itemCount: lista.length,
+        itemBuilder: (context, index) {
+          return Text(lista[index]['nome']);
+        },
+      ),*/
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
