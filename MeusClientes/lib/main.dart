@@ -38,6 +38,43 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  Widget construirCard(String nome, String endereco, String telefone) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        margin: EdgeInsets.all(5),
+        child: Container(
+          color: Colors.blue[100],
+          child: ListTile(
+            leading: Icon(
+              Icons.face,
+              size: 50,
+            ),
+            title: Text(nome,
+            style: TextStyle(
+              fontSize: 24,
+            ),),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(
+                  height: 15,
+                ),
+                Text(endereco),
+                SizedBox(
+                  height: 15,
+                ),
+                Text(telefone,
+                style: TextStyle(fontWeight: FontWeight.bold,
+                fontSize: 36),),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var lista = [
@@ -72,25 +109,15 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          SizedBox(
-            height: 25,
+          construirCard(
+            lista[0]['nome'],
+            lista[0]['endereco'],
+            lista[0]['telefone'],
           ),
-          Card(
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: 180,
-              color: Colors.blue[50],
-            ),
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Card(
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: 180,
-              color: Colors.blue[50],
-            ),
+          construirCard(
+            lista[1]['nome'],
+            lista[1]['endereco'],
+            lista[1]['telefone'],
           ),
         ],
       ),
