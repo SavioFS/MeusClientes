@@ -8,7 +8,28 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var lista = [];
+  var lista = [
+    // {
+    //   "id": 12,
+    //   "nome": "Sílvia Maria Borges Dias",
+    //   "telefone": "62994943490",
+    //   "endereco":
+    //       "Rua das Garças quadra 16 Lote 29 Colina Azul\n\nproximo ao colegio Militar no Colina Azul",
+    //   "saldo": 2000,
+    //   "created_at": "2021-01-23T21:45:22.000Z",
+    //   "updated_at": "2021-01-23T21:45:22.000Z"
+    // },
+    // {
+    //   "id": 11,
+    //   "nome": "Savio Ferreira de Souza",
+    //   "telefone": "62986265578",
+    //   "endereco":
+    //       "rua 30 quadra 53 lote 01 bairro independência  \n\nproximo a drogaria MedFacil ",
+    //   "saldo": 200,
+    //   "created_at": "2021-01-23T21:36:34.000Z",
+    //   "updated_at": "2021-01-23T21:36:34.000Z"
+    // }
+  ];
 
   @override
   void initState() {
