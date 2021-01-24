@@ -30,15 +30,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  Widget construirCard(String nome, String endereco, String telefone) {
+  Widget construirCard(
+      {String nome, String endereco, String telefone, dynamic saldo}) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
@@ -50,10 +43,19 @@ class _MyHomePageState extends State<MyHomePage> {
               Icons.face,
               size: 50,
             ),
-            title: Text(nome,
-            style: TextStyle(
-              fontSize: 24,
-            ),),
+            title: Text(
+              nome,
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+            trailing: Text(
+              saldo.toString(),
+              style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 18,
+                color: saldo > 0 ? Colors.green : Colors.red,
+              ),
+            ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -64,9 +66,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(
                   height: 15,
                 ),
-                Text(telefone,
-                style: TextStyle(fontWeight: FontWeight.bold,
-                fontSize: 36),),
+                Text(
+                  telefone,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
               ],
             ),
           ),
@@ -84,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
         "telefone": "62994943490",
         "endereco":
             "Rua das Garças quadra 16 Lote 29 Colina Azul\n\nproximo ao colegio Militar no Colina Azul",
-        "saldo": 2000,
+        "saldo": -2000,
         "created_at": "2021-01-23T21:45:22.000Z",
         "updated_at": "2021-01-23T21:45:22.000Z"
       },
@@ -107,32 +110,38 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          construirCard(
-            lista[0]['nome'],
-            lista[0]['endereco'],
-            lista[0]['telefone'],
-          ),
-          construirCard(
-            lista[1]['nome'],
-            lista[1]['endereco'],
-            lista[1]['telefone'],
-          ),
-        ],
-      ),
-
-      /*ListView.builder(
+      body: ListView.builder(
         itemCount: lista.length,
         itemBuilder: (context, index) {
-          return Text(lista[index]['nome']);
+          return construirCard(
+              nome: lista[index]['nome'],
+              endereco: lista[index]['endereco'],
+              telefone: lista[index]['telefone'],
+              saldo: lista[index]['saldo']);
         },
-      ),*/
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
+      
+      /*Column(
+        children: [
+          construirCard(
+              nome: lista[0]['nome'],
+              endereco: lista[0]['endereco'],
+              telefone: lista[0]['telefone'],
+              saldo: lista[0]['saldo']),
+          construirCard(
+              nome: lista[1]['nome'],
+              endereco: lista[1]['endereco'],
+              telefone: lista[1]['telefone'],
+              saldo: lista[1]['saldo']),
+        ],
+      ),*/
+
+      
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _incrementCounter,
+      //   tooltip: 'Increment',
+      //   child: Icon(Icons.add),
+      // ),
     );
   }
 }
