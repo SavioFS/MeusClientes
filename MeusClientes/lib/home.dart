@@ -15,12 +15,12 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
   }
 
-  Future buscarDados() async {
-    var url = 'http://localhost:1337/clientes';
+  Future buscarDados() {
+    var url = 'http://192.168.1.13:1337/clientes';
 
-    await http.get(url).then((value) => {
+    http.get(url).then((value) => {
           setState(() {
-            lista = (jsonDecode(value.body)["data"] as List)
+            lista = (jsonDecode(value.body) as List)
                 .map((e) => e as Map<String, dynamic>)
                 ?.toList();
           })
